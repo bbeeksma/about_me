@@ -69,7 +69,7 @@ else{ //continue to quiz questions
     console.log('user input ' + jaguar + '. Normalized input ' + nInput(jaguar));
 
     if(nInput(jaguar) === 'YES'){
-      alert('You said ' + nInput(jaguar) + '. That\'s right! I restored a 89 Jaguar XJ-6 Vanden Plas, but I no longer own  it sadly :(');
+      alert('You said ' + nInput(jaguar) + '. That\'s right! I restored a 89 Jaguar XJ-6 Vanden Plas, but  sadly I no longer own  it.');
     }
     else if(nInput(jaguar) === 'NO'){
       alert('You said ' + nInput(jaguar) + '. Actually I did! My dad gave me a 89 Jaguar XJ-6 Vanden Plas to fix up (wasn\'t running when he gave it to me) in exchange for my 01 Ford Focus');
