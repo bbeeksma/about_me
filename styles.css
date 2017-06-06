@@ -1,3 +1,16 @@
+
+
+
 body{
+  font-family: Verdana;
+  width: 100%;
   background: gray;
+  background: linear-gradient(to right,PowderBlue,DimGray);
+}
+h1{
+  color: DarkSlateGray;
+}
+dt{
+  color: DarkSlateBlue;
+  font-size: 18px;
 }

@@ -2,8 +2,8 @@
 
 console.log('loaded app.js'); //have we actually loaded app.js?
 
-function nInput(uInput){  //this function should scrub uInput and turn into 'Y' or 'N'
-  uInput = uInput.toUpperCase();
+function nInput(uInput){  //this function should scrub uInput and turn into 'Y' or 'N' i wanted case when, but switch is close enough.
+  uInput = uInput.toUpperCase(); // first make whatever you're putting in here uppercase
   switch(uInput){
   case 'Y':
   case 'YES':
@@ -13,7 +13,7 @@ function nInput(uInput){  //this function should scrub uInput and turn into 'Y' 
   case 'NO':
     return 'NO';
     break;
-  default:
+  default: // if  it isn't one of these options sent 'ERROR' -- Can you tell it to return NULL?
     return 'ERROR';
     break;
   }
@@ -26,7 +26,7 @@ do{
   console.log('user input ' + correctName + ' for "correctName"');
 }while (!correctName);
 
-var wantsToPlay = confirm('Nice to meet you ' + userName + '! Would you like to take a quick quiz about me? (click OK to continue.)');//confirm user want to play game
+var wantsToPlay = confirm('Nice to meet you ' + userName + '! Would you like to take a quick quiz about me? (click OK to continue.)');//confirm user wants to play game
 
 if(!wantsToPlay){ // end game if user doesn't want to play
   alert('OK, goodbye!');
@@ -35,7 +35,7 @@ if(!wantsToPlay){ // end game if user doesn't want to play
 else{ //continue to quiz questions
   console.log('"wantsToPlay" = ' + wantsToPlay + '. continuing quiz');
   do{ //question one
-    var favBand = prompt('Is my favorite band the beatles? Please answer YES or NO') || '';
+    var favBand = prompt('Is my favorite band the beatles?', 'Please answer YES or NO') || '';
     console.log('user input ' + favBand + '. Normalized input ' + nInput(favBand));
 
     if(nInput(favBand) === 'YES'){
@@ -50,7 +50,7 @@ else{ //continue to quiz questions
   }while(nInput(favBand) === 'ERROR');
 
   do{ //question two
-    var skydive = prompt('Have I ever been skydiving? Please answer YES or NO') || '';
+    var skydive = prompt('Have I ever been skydiving?' , 'Please answer YES or NO') || '';
     console.log('user input ' + skydive + '. Normalized input ' + nInput(skydive));
 
     if(nInput(skydive) === 'YES'){
@@ -65,7 +65,7 @@ else{ //continue to quiz questions
   }while(nInput(skydive) === 'ERROR');
 
   do{ //question three
-    var jaguar = prompt('Have I ever owned a Jaguar? Please answer YES or NO') || '';
+    var jaguar = prompt('Have I ever owned a Jaguar?', 'Please answer YES or NO') || '';
     console.log('user input ' + jaguar + '. Normalized input ' + nInput(jaguar));
 
     if(nInput(jaguar) === 'YES'){
