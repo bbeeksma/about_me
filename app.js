@@ -22,7 +22,7 @@ function nInput(uInput){  //this function should scrub uInput and turn into 'Y' 
 var numCorrect = 0; //variable to hold correct responses
 
 do{
-  var userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Harold Bluetooth'
+  var userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Your name goes here'
   console.log('user input ' + userName + ' for "userName"');
   var correctName = confirm('You name is ' + userName + ' Is that correct?'); //confirm userName before continuing
   console.log('user input ' + correctName + ' for "correctName"');
@@ -46,6 +46,7 @@ else{ //continue to quiz questions
     else if(nInput(favBand) === 'NO'){
       alert('You said ' + nInput(favBand) + '. That\'s right! My favorite band is Meatloaf.');
       numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else{
       alert('You must answer YES or NO.');
@@ -62,6 +63,7 @@ else{ //continue to quiz questions
     else if(nInput(skydive) === 'NO'){
       alert('You said ' + nInput(skydive) + '. That\'s right! I\'m not a huge fan of falling.');
       numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else{
       alert('You must answer YES or NO.');
@@ -75,6 +77,7 @@ else{ //continue to quiz questions
     if(nInput(jaguar) === 'YES'){
       alert('You said ' + nInput(jaguar) + '. That\'s right! I restored a 89 Jaguar XJ-6 Vanden Plas, but  sadly I no longer own  it.');
       numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else if(nInput(jaguar) === 'NO'){
       alert('You said ' + nInput(jaguar) + '. Actually I did! My dad gave me a 89 Jaguar XJ-6 Vanden Plas to fix up (wasn\'t running when he gave it to me) in exchange for my 01 Ford Focus');
@@ -94,6 +97,7 @@ else{ //continue to quiz questions
     else if(nInput(trumpet) === 'NO'){
       alert('You said ' + nInput(trumpet) + '. That\'s right! I don\'t play the trumpet! I used to play the trombone though!');
       numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else{
       alert('You must answer YES or NO.');
@@ -107,6 +111,7 @@ else{ //continue to quiz questions
     if(nInput(dog) === 'YES'){
       alert('You said ' + nInput(dog) + '. That\'s right! I love dogs!');
       numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else if(nInput(dog) === 'NO'){
       alert('You said ' + nInput(dog) + '. Wrong! I love dogs!');
@@ -126,6 +131,6 @@ else{ //continue to quiz questions
     alert('You got ' + numCorrect + ' out of 5...  Have we met before ' + userName + '?');
   }
   else{
-    alert('You got ' + numCorrect + ' out of 5...  Well done ' + userName + '! Now, please remove the spy cam from my bedroom.');
+    alert('You got ' + numCorrect + ' out of 5...  Well done ' + userName + '! You crushed it!');
   }
 } //end of quiz questions
