@@ -121,6 +121,27 @@ else{ //continue to quiz questions
     }
   }while(nInput(dog) === 'ERROR');
 
+  do{ //question five
+    var validAnswer = false; //use to end loop if a vaild number is picked
+    var randInt = Math.floor(Math.random() * 10) + 1;
+    var numGuess = prompt('What number am I thinking?' , 'pick a whole between 1 and 10');
+    console.log('random Int = ' + randInt + ' user input = ' + numGuess + 'is an integer ' + Number.isInteger(numGuess));
+
+    if(isNaN(parseInt(numGuess)) || !Number.isInteger(parseInt(numGuess)) || numGuess < 11){
+      alert('Please pick a whole number between 1 and 10');
+    }
+    else if(numGuess == randInt){
+      validAnswer = true;
+      alert('WOW, great guess ' + userName + '!');
+      numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
+    }
+    else{
+      validAnswer = true;
+      alert('Nope, I was thinking ' + randInt);
+    }
+  }while(!validAnswer);
+
   if(numCorrect === 0){
     alert('You got ' + numCorrect + ' out of 5...  I\'m an interesting person ' + userName + ', you should learn about me!');
   }
