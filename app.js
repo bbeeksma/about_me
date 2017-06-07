@@ -121,37 +121,40 @@ else{ //continue to quiz questions
     }
   }while(nInput(dog) === 'ERROR');
 
-  do{ //question five
-    var validAnswer = false; //use to end loop if a vaild number is picked
-    var randInt = Math.floor(Math.random() * 10) + 1;
+  var randInt = Math.floor(Math.random() * 10) + 1; // setting this variable here so it doesn't get reset in the loop
+  for(t = 0 ; t < 4; t++){ //question six
+    correctAnswerSix = false;
     var numGuess = prompt('What number am I thinking?' , 'pick a whole between 1 and 10');
-    console.log('random Int = ' + randInt + ' user input = ' + numGuess + 'is an integer ' + Number.isInteger(numGuess));
+    console.log('random Int = ' + randInt + ' user input = ' + numGuess + 'is an integer ' + Number.isInteger(parseInt(numGuess)));
 
-    if(isNaN(parseInt(numGuess)) || !Number.isInteger(parseInt(numGuess)) || numGuess < 11){
-      alert('Please pick a whole number between 1 and 10');
+    if(isNaN(parseInt(numGuess)) || !Number.isInteger(parseInt(numGuess)) || numGuess > 10){ //catch entries that won't evaluate and loop
+      alert('You need to guess a number between 1 and 10');
     }
     else if(numGuess == randInt){
-      validAnswer = true;
-      alert('WOW, great guess ' + userName + '!');
+      correctAnswerSix = true;
+      alert('WOW, great guess ' + userName + '! My number was' + randInt);
       numCorrect++;
       console.log('numCorrect set to ' + numCorrect);
+      break;
     }
     else{
-      validAnswer = true;
-      alert('Nope, I was thinking ' + randInt);
+      alert('Nope, not ' + numGuess + '.');
     }
-  }while(!validAnswer);
+  }
+  if (correctAnswerSix = false){
+    alert('I was actually thinking ' + randInt + '!');
+  }
 
   if(numCorrect === 0){
-    alert('You got ' + numCorrect + ' out of 5...  I\'m an interesting person ' + userName + ', you should learn about me!');
+    alert('You got ' + numCorrect + ' out of 6...  I\'m an interesting person ' + userName + ', you should learn about me!');
   }
   else if(numCorrect < 3){
-    alert('You got ' + numCorrect + ' out of 5...  Myabe you should get to know me better' + userName + '!');
+    alert('You got ' + numCorrect + ' out of 6...  Myabe you should get to know me better' + userName + '!');
   }
-  else if(numCorrect < 5){
-    alert('You got ' + numCorrect + ' out of 5...  Have we met before ' + userName + '?');
+  else if(numCorrect < 6){
+    alert('You got ' + numCorrect + ' out of 6...  Have we met before ' + userName + '?');
   }
   else{
-    alert('You got ' + numCorrect + ' out of 5...  Well done ' + userName + '! You crushed it!');
+    alert('You got ' + numCorrect + ' out of 6...  Well done ' + userName + '! You crushed it!');
   }
 } //end of quiz questions
