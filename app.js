@@ -120,14 +120,14 @@ else{ //continue to quiz questions
       alert('You must answer YES or NO.');
     }
   }while(nInput(dog) === 'ERROR');
-
+  var correctAnswerSix = false; //this is ONLY to keep "I was actually thinking" prompt from running if correct answer is chosen
   var randInt = Math.floor(Math.random() * 10) + 1; // setting this variable here so it doesn't get reset in the loop
-  for(t = 0 ; t < 4; t++){ //question six
+  for(var t = 0 ; t < 4; t++){ //question six
     correctAnswerSix = false;
     var numGuess = prompt('What number am I thinking?' , 'pick a whole between 1 and 10');
-    console.log('random Int = ' + randInt + ' user input = ' + numGuess + 'is an integer ' + Number.isInteger(parseInt(numGuess)));
+    console.log('random Int = ' + randInt + ' user input = ' + numGuess + ' is an integer ' + Number.isInteger(parseInt(numGuess)));
 
-    if(isNaN(parseInt(numGuess)) || !Number.isInteger(parseInt(numGuess)) || numGuess > 10){ //catch entries that won't evaluate and loop
+    if(isNaN(parseInt(numGuess)) || !Number.isInteger(parseInt(numGuess)) || numGuess > 10){ //catch entries that won't evaluate
       alert('You need to guess a number between 1 and 10');
     }
     else if(numGuess == randInt){
@@ -141,7 +141,7 @@ else{ //continue to quiz questions
       alert('Nope, not ' + numGuess + '.');
     }
   }
-  if (correctAnswerSix = false){
+  if (correctAnswerSix === false){
     alert('I was actually thinking ' + randInt + '!');
   }
 
