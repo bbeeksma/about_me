@@ -117,12 +117,15 @@ else{ //continue to quiz questions
   }while(nInput(dog) === 'ERROR');
 
   if(numCorrect === 0){
-    alert('That\'s all! Thank you for taking my quiz ' + userName + '!');
+    alert('You got ' + numCorrect + ' out of 5...  I\'m an interesting person ' + userName + ', you should learn about me!');
   }
-  else if(numCorrect === 5){
-    alert('some stuff');
+  else if(numCorrect < 3){
+    alert('You got ' + numCorrect + ' out of 5...  Myabe you should get to know me better' + userName + '!');
+  }
+  else if(numCorrect < 5){
+    alert('You got ' + numCorrect + ' out of 5...  Have we met before ' + userName + '?');
   }
   else{
-    alert('some other stuff');
+    alert('You got ' + numCorrect + ' out of 5...  Well done ' + userName + '! Now, please remove the spy cam from my bedroom.');
   }
 } //end of quiz questions
