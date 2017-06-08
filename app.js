@@ -7,6 +7,7 @@ function main(){
   var wtp = wantsToPlay();
   if (wtp) {
     questions();
+    score();
   }
 }
 function nInput(uInput){  //this function should scrub uInput and turn into 'Y' or 'N' i wanted case when, but switch is close enough.
@@ -198,16 +199,19 @@ function questions(){
       console.log('trySeven set to ' + trySeven);
     }
   }while(!correctAnswerSeven && trySeven < 6);
+}//end of quiz questions
+
+function score (){
+  if(numCorrect === 0){
+    alert('You got ' + numCorrect + ' out of 7...  I\'m an interesting person ' + userName + ', you should learn about me!');
+  }
+  else if(numCorrect < 4){
+    alert('You got ' + numCorrect + ' out of 7...  Myabe you should get to know me better' + userName + '!');
+  }
+  else if(numCorrect < 7){
+    alert('You got ' + numCorrect + ' out of 6...  Have we met before ' + userName + '?');
+  }
+  else{
+    alert('You got ' + numCorrect + ' out of 6...  Well done ' + userName + '! You crushed it!');
+  }
 }
-if(numCorrect === 0){
-  alert('You got ' + numCorrect + ' out of 7...  I\'m an interesting person ' + userName + ', you should learn about me!');
-}
-else if(numCorrect < 4){
-  alert('You got ' + numCorrect + ' out of 7...  Myabe you should get to know me better' + userName + '!');
-}
-else if(numCorrect < 7){
-  alert('You got ' + numCorrect + ' out of 6...  Have we met before ' + userName + '?');
-}
-else{
-  alert('You got ' + numCorrect + ' out of 6...  Well done ' + userName + '! You crushed it!');
-} //end of quiz questions
