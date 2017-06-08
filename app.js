@@ -152,6 +152,7 @@ else{ //continue to quiz questions
   var trySeven = 0;
   do{
     var state = prompt('Name a state that I\'ve resided in.' , 'Full state name or postal abbreviation') || '';
+    console.log('user input ' + state + '. Try attempt ' + trySeven);
     for(var i = 0; i < validAnswerSevens.length; i++){
       if(state.toUpperCase() === validAnswerSevens[i]){
         correctAnswerSeven = true;
@@ -159,16 +160,23 @@ else{ //continue to quiz questions
     }
     if(correctAnswerSeven && (state.toUpperCase() === 'IOWA' || state.toUpperCase() === 'IA')){
       alert('That\'s right! I have lived in Iowa.  In fact I\'ve lived in ' + correctAnswerSevens[1] + ', ' + correctAnswerSevens[2] + ', and ' + correctAnswerSevens[0]);
+      numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else if(correctAnswerSeven && (state.toUpperCase() === 'LOUISIANA' || state.toUpperCase() === 'LA')){
       alert('That\'s right! I have lived in Louisiana.  In fact I\'ve lived in ' + correctAnswerSevens[0] + ', ' + correctAnswerSevens[1] + ', and ' + correctAnswerSevens[2]);
+      numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else if(correctAnswerSeven && (state.toUpperCase() === 'WISCONSIN' || state.toUpperCase() === 'WI')){
       alert('That\'s right! I have lived in Wisconsin.  In fact I\'ve lived in ' + correctAnswerSevens[0] + ', ' + correctAnswerSevens[2] + ', and ' + correctAnswerSevens[1]);
+      numCorrect++;
+      console.log('numCorrect set to ' + numCorrect);
     }
     else{
       alert('Sorry, that isn\'t a state I\'ve lived in.  Try again!');
       trySeven++;
+      console.log('trySeven set to ' + trySeven);
     }
   }while(!correctAnswerSeven && trySeven < 6);
 
