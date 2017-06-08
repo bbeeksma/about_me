@@ -2,6 +2,9 @@
 
 console.log('loaded app.js'); //have we actually loaded app.js?
 
+function main(){
+  promptUserName();
+}
 function nInput(uInput){  //this function should scrub uInput and turn into 'Y' or 'N' i wanted case when, but switch is close enough.
   uInput = uInput.toUpperCase(); // first make whatever you're putting in here uppercase
   switch(uInput){
