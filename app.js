@@ -13,20 +13,25 @@ function nInput(uInput){  //this function should scrub uInput and turn into 'Y' 
   case 'NO':
     return 'NO';
     break;
+  case null:
+    return null;
+    break;
   default: // if  it isn't one of these options sent 'ERROR' -- Can you tell it to return NULL?
-    return 'ERROR';
+    return;
     break;
   }
 }
 
 var numCorrect = 0; //variable to hold correct responses
-
-do{
-  var userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Your name goes here'
-  console.log('user input ' + userName + ' for "userName"');
-  var correctName = confirm('You name is ' + userName + ' Is that correct?'); //confirm userName before continuing
-  console.log('user input ' + correctName + ' for "correctName"');
-}while (!correctName);
+var userName;
+function promptUserName(){
+  do{
+    userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Your name goes here'
+    console.log('user input ' + userName + ' for "userName"');
+    var correctName = confirm('You name is ' + userName + ' Is that correct?'); //confirm userName before continuing
+    console.log('user input ' + correctName + ' for "correctName"');
+  }while (!correctName);
+}
 
 var wantsToPlay = confirm('Nice to meet you ' + userName + '! Would you like to take a quick quiz about me? (click OK to continue.)');//confirm user wants to play game
 
