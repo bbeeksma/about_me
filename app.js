@@ -2,6 +2,14 @@
 
 console.log('loaded app.js'); //have we actually loaded app.js?
 
+function main(){
+  promptUserName();
+  var wtp = wantsToPlay();
+  if (wtp) {
+    questions();
+    score();
+  }
+}
 function nInput(uInput){  //this function should scrub uInput and turn into 'Y' or 'N' i wanted case when, but switch is close enough.
   uInput = uInput.toUpperCase(); // first make whatever you're putting in here uppercase
   switch(uInput){
@@ -13,29 +21,41 @@ function nInput(uInput){  //this function should scrub uInput and turn into 'Y' 
   case 'NO':
     return 'NO';
     break;
+  case null:
+    return null;
+    break;
   default: // if  it isn't one of these options sent 'ERROR' -- Can you tell it to return NULL?
-    return 'ERROR';
+    return;
     break;
   }
 }
 
 var numCorrect = 0; //variable to hold correct responses
-
-do{
-  var userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Your name goes here'
-  console.log('user input ' + userName + ' for "userName"');
-  var correctName = confirm('You name is ' + userName + ' Is that correct?'); //confirm userName before continuing
-  console.log('user input ' + correctName + ' for "correctName"');
-}while (!correctName);
-
-var wantsToPlay = confirm('Nice to meet you ' + userName + '! Would you like to take a quick quiz about me? (click OK to continue.)');//confirm user wants to play game
-
-if(!wantsToPlay){ // end game if user doesn't want to play
-  alert('OK, goodbye!');
-  console.log('"wantsToPlay" = ' + wantsToPlay + '. Ending quiz');
+var userName;
+function promptUserName(){
+  do{
+    userName = prompt('Please tell me your name.' , 'Your name goes here'); //get userName default to 'Your name goes here'
+    console.log('user input ' + userName + ' for "userName"');
+    var correctName = confirm('You name is ' + userName + ' Is that correct?'); //confirm userName before continuing
+    console.log('user input ' + correctName + ' for "correctName"');
+  }while (!correctName);
 }
-else{ //continue to quiz questions
-  console.log('"wantsToPlay" = ' + wantsToPlay + '. continuing quiz');
+
+function wantsToPlay(){
+  var wantToPlay = confirm('Nice to meet you ' + userName + '! Would you like to take a quick quiz about me? (click OK to continue.)');//confirm user wants to play game
+
+  if(!wantToPlay){ // end game if user doesn't want to play
+    alert('OK, goodbye!');
+    console.log('"wantsToPlay" = ' + wantToPlay + '. Ending quiz');
+    return false;
+  }
+  else{ //continue to quiz questions
+    console.log('"wantsToPlay" = ' + wantToPlay + '. continuing quiz');
+    return true;
+  }
+}
+//start of questions
+function questions(){
   do{ //question one
     var favBand = prompt('Is my favorite band the beatles?', 'Please answer YES or NO') || '';
     console.log('user input ' + favBand + '. Normalized input ' + nInput(favBand));
@@ -179,7 +199,9 @@ else{ //continue to quiz questions
       console.log('trySeven set to ' + trySeven);
     }
   }while(!correctAnswerSeven && trySeven < 6);
+}//end of quiz questions
 
+function score (){
   if(numCorrect === 0){
     alert('You got ' + numCorrect + ' out of 7...  I\'m an interesting person ' + userName + ', you should learn about me!');
   }
@@ -192,4 +214,4 @@ else{ //continue to quiz questions
   else{
     alert('You got ' + numCorrect + ' out of 6...  Well done ' + userName + '! You crushed it!');
   }
-} //end of quiz questions
+}
