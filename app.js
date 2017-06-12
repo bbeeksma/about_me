@@ -174,9 +174,9 @@ function score (){
     alert('You got ' + numCorrect + ' out of 7...  Myabe you should get to know me better ' + userName + '!');
   }
   else if(numCorrect < 7){
-    alert('You got ' + numCorrect + ' out of 6...  Have we met before ' + userName + '?');
+    alert('You got ' + numCorrect + ' out of 7...  Have we met before ' + userName + '?');
   }
   else{
-    alert('You got ' + numCorrect + ' out of 6...  Well done ' + userName + '! You crushed it!');
+    alert('You got ' + numCorrect + ' out of 7...  Well done ' + userName + '! You crushed it!');
   }
 }
