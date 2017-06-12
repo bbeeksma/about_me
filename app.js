@@ -24,12 +24,40 @@ function nInput(uInput){  //this function should scrub uInput and turn into 'Y' 
   case null:
     return null;
     break;
-  default: // if  it isn't one of these options sent 'ERROR' -- Can you tell it to return NULL?
+  default:
     return;
     break;
   }
 }
 
+var yesNoQuestions = [
+  'Is my favorite band the beatles?'
+  ,'Have I ever been skydiving?'
+  ,'Have I ever owned a Jaguar?'
+  ,'Do I play the trumpet?'
+  ,'Am I a dog person?'
+];
+var yesNoCorrectAnswers = [
+  'NO'
+  ,'NO'
+  ,'YES'
+  ,'NO'
+  ,'YES'
+];
+var yesNoCorrectResponses = [
+  'You said ' + nInput(favBand) + '. That\'s right! My favorite band is Meatloaf.'
+  ,'You said ' + nInput(skydive) + '. That\'s right! I\'m not a huge fan of falling.'
+  ,'You said ' + nInput(jaguar) + '. That\'s right! I restored a 89 Jaguar XJ-6 Vanden Plas, but  sadly I no longer own  it.'
+  ,'You said ' + nInput(trumpet) + '. That\'s right! I don\'t play the trumpet! I used to play the trombone though!'
+  ,'You said ' + nInput(dog) + '. That\'s right! I love dogs!'
+];
+var yesNoIncorrectResponses = [
+  'You said ' + nInput(favBand) + '. Acutally my favorite band is Meatloaf.  I love that higschool angst!'
+  ,'You said ' + nInput(skydive) + '. Nope, I\'ve never been skydiving.  Why jump out of a perfectly good plane!'
+  ,'You said ' + nInput(jaguar) + '. Actually I did! My dad gave me a 89 Jaguar XJ-6 Vanden Plas to fix up (wasn\'t running when he gave it to me) in exchange for my 01 Ford Focus'
+  ,'You said ' + nInput(trumpet) + '. Nope, I did play the trombone and the flute in highschool and college though.'
+  ,'You said ' + nInput(dog) + '. Wrong! I love dogs!'
+];
 var numCorrect = 0; //variable to hold correct responses
 var userName;
 function promptUserName(){
@@ -108,7 +136,7 @@ function questions(){
   }while(nInput(jaguar) === 'ERROR');
 
   do{ //question four
-    var trumpet = prompt('Do I play the trumpet? Please answer YES or NO') || '';
+    var trumpet = prompt('Do I play the trumpet?', 'Please answer YES or NO') || '';
     console.log('user input ' + trumpet + '. Normalized input ' + nInput(trumpet));
 
     if(nInput(trumpet) === 'YES'){
@@ -125,7 +153,7 @@ function questions(){
   }while(nInput(trumpet) === 'ERROR');
 
   do{ //question five
-    var dog = prompt('Am I a dog person? Please answer YES or NO') || '';
+    var dog = prompt('Am I a dog person?', 'Please answer YES or NO') || '';
     console.log('user input ' + dog + '. Normalized input ' + nInput(dog));
 
     if(nInput(dog) === 'YES'){
